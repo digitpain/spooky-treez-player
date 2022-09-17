@@ -1,7 +1,8 @@
-# PureWeb Pixel Streaming Client Template
+# Spooky Treez Player
+## Based on PureWeb Pixel Streaming Client Template
 
-Readme coming soon.
+Whiteboard: https://www.figma.com/file/iLerSWmQeDT1DjurPhueEu/DIGITPAIN-Trees-%2F-Wild.xyz?node-id=0%3A1
 
-## Support
+## PureWeb Support
 
 Contact support@pureweb.com with any questions or concerns.

@@ -299,6 +299,7 @@ const App: React.FC = () => {
     launchRequest,
     streamerOptions
   );
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -327,7 +328,26 @@ const App: React.FC = () => {
   // Log status messages
   useEffect(() => {
     logger.info('Status', status, streamerStatus);
-  }, [status, streamerStatus]);
+
+    const params = {
+      tree: parseInt(query["tree"] as string),
+      dir: parseInt(query["dir"] as string),
+      hue: parseInt(query["hue"] as string),
+      scale: parseFloat(query["scale"] as string),
+    };
+
+    // Emit an event automatically on start? Then on every click.
+    if (status.status === "ready") {
+      console.log("Emitting params:", params);
+      emitter.EmitUIInteraction(params);
+
+      window.onclick = function () {
+        emitter.EmitUIInteraction(params);
+        console.log("Re-emitting params:", params);
+      };
+    }
+
+  }, [status, streamerStatus, emitter]);
 
   // Subscribe to game messages
   useEffect(() => {
